@@ -1,0 +1,12 @@
+site/
+__pycache__/
+.venv/
+
+# LaTeX build leftovers
+*.aux
+*.log
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.out
+*.toc

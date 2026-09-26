@@ -1,0 +1,67 @@
+site_name: IITM Notes
+site_description: Notes for the IIT Madras BS Degree, organised by subject and week.
+# site_url: https://<your-username>.github.io/<repo-name>/
+
+theme:
+  name: material
+  features:
+    - navigation.tabs          # subjects (and Textbooks) as top tabs
+    - navigation.sections      # weeks as sidebar groups
+    - navigation.top
+    - navigation.footer        # previous / next buttons
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+
+hooks:
+  - hooks/auto_nav.py
+
+# LaTeX build leftovers
+exclude_docs: |
+  *.aux
+  *.log
+  *.fls
+  *.fdb_latexmk
+  *.synctex.gz
+  *.out
+  *.toc
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.arithmatex:       # LaTeX maths in Markdown: $x^2$ and $$ ... $$
+      generic: true
+
+extra_css:
+  - stylesheets/extra.css
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
